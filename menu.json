@@ -1,0 +1,59 @@
+{
+	zhiban: {
+		active: false,
+		icon: "fa fa-calendar",
+		menu: "值班管理",
+		children: [{
+				menu: "前端",
+				active: false,
+				link: "/zhiban?team=1",
+			},
+			{
+				menu: "后端",
+				active: false,
+				link: "/zhiban?team=2",
+			},
+			{
+				menu: "策略",
+				active: false,
+				link: "/zhiban?team=3",
+			},
+			{
+				menu: "测试",
+				active: false,
+				link: "/zhiban?team=4",
+			},
+		],
+	},
+	user: {
+		children: [{
+				menu: "全部",
+				active: false,
+				link: "/user?team=0",
+			},
+			{
+				menu: "前端",
+				active: false,
+				link: "/user?team=1",
+			},
+			{
+				menu: "后端",
+				active: false,
+				link: "/user?team=2",
+			},
+			{
+				menu: "策略",
+				active: false,
+				link: "/user?team=3",
+			},
+			{
+				menu: "测试",
+				active: false,
+				link: "/user?team=4",
+			},
+		],
+		active: false,
+		icon: "fa fa-user",
+		menu: "用户管理",
+	},
+}

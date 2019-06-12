@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>值班系统</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script type="text/javascript" src="./adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./adminlte/dist/js/adminlte.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="./adminlte/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" type="text/css" href="./adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./adminlte/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./adminlte/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="./adminlte/dist/css/skins/skin-blue.min.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">学而思网校</a>
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- 菜单折叠按钮 -->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i>值班系统</i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <ul class="sidebar-menu" data-widget="tree">
+                @foreach ($menu as $val)
+                    @if(count($val["children"]) == 0)
+                        <li class="{{ $val['active'] ? "active" : "" }}"><a href="{{ $val['link'] }}"><i class="{{ $val['icon'] }}"></i> <span>{{ $val["menu"] }}</span></a></li>
+                    @else
+                        <li class="treeview {{ $val['active'] ? 'active' : '' }}">
+                            <a><i class="{{ $val['icon'] }}"></i> <span>{{ $val['menu'] }}</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+                            <ul class="treeview-menu">
+                                @foreach ($val['children'] as $val1)
+                                    <li class="{{ $val1['active'] ? "active" : "" }}"><a href="{{$val1['link']}}">{{ $val1['menu'] }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
+                @endforeach
+            </ul>
+        </section>
+    </aside>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+    <section class="content container-fluid">
+        @yield('content')
+    </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer 按需是否展示此内容-->
+    <!--
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs"> 增长研发部 </div>
+        <strong>Copyright &copy; 2019 <a href="#">学而思网校</a>.</strong> All rights reserved.
+    </footer>
+    -->
+</div>
+</body>
+</html>
+
